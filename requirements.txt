@@ -1,0 +1,21 @@
+# Core dependencies with pinned versions for stability
+langchain>=0.1.0
+python-dotenv>=1.0.0,<2.0.0
+
+# Vector store and LLM integrations
+pinecone-client>=3.0.0
+openai>=1.0.0
+
+# Document processing
+PyPDF2>=3.0.0
+python-docx>=0.8.10
+
+# ML and embeddings
+sentence-transformers>=2.2.0
+rank-bm25>=0.2.1
+
+# HTTP and utilities
+requests>=2.31.0
+
+# Type hints (required by openai)
+typing_extensions>=4.0.0
