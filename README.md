@@ -33,21 +33,32 @@ Tools: retrieve, get_document_metadata, check_contradictions
 
 ### Installation
 1. Clone the repository
-2. Install dependencies: `pip install -r requirements.txt`
-3. Copy `.env.example` to `.env` and fill in your API keys
-4. Run ingestion: `python src/ingest.py`
-5. Ask questions: `python ask.py "your question"`
+### 1. Navigate to project
+cd c:\newAssignment
 
-### Configuration
-- LLM: Set `LLM_PROVIDER` to 'openai' (default) or 'gemini' in `.env`
-- Pinecone: Configure index name and API key
-- Pinecone serverless auto-creation: set `PINECONE_CLOUD` and `PINECONE_REGION` if the index does not exist
-- Corpus: Place docs under `policy_corpus` or set `CORPUS_ZIP_URL` to download/extract a ZIP file automatically
+### 2. Create & activate virtual environment
+python -m venv .venv
+.venv\Scripts\Activate.ps1
 
-## Usage
-- CLI: `python ask.py "What is the parental leave policy?"`
-- Evaluation: `python evaluate.py`
-- Health Check: `python health_check.py` (recommended before first use)
+### 3. Install dependencies
+pip install -r requirements.txt
+
+### 4. Configure (edit .env with your API keys)
+copy .env.example .env
+### Edit .env with: OPENAI_API_KEY, PINECONE_API_KEY, PINECONE_CLOUD, PINECONE_REGION
+
+### 5. Verify health check
+python health_check.py
+
+### 6. Ingest corpus (one-time, ~2-5 min)
+python src/ingest.py
+
+### 7. Test a question
+python ask.py "What is the standard notice period at Meridian?"
+
+### 8. Run full evaluation
+python evaluate.py
+### → Generates results.json with 15 test questions
 
 ## Troubleshooting
 
